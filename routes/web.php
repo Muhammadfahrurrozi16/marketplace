@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboardController; 
 use App\Http\Controllers\homecontroller; 
+use App\Http\Controllers\jasaController; 
 use App\Http\Controllers\Auth\logincontroller; 
 use App\Http\Controllers\Auth\signupcontroller; 
 /*
@@ -19,4 +20,6 @@ Route::get('/', [homecontroller::class, 'index']);
 Route::get('/Home', [homecontroller::class, 'index1']);
 Route::get('/signup', [signupcontroller::class, 'index']);
 Route::get('/login', [logincontroller::class, 'index']);
+Route::post('/login', [logincontroller::class, 'authentikasi']);
 Route::resource('dashboard',dashboardController::class);
+Route::resource('jasa',jasaController::class)->middleware('auth');

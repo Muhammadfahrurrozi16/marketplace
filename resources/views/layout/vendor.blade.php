@@ -524,7 +524,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
+                            <span class="fw-semibold d-block">@auth {{ auth()->user()->name }} @endauth</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>
@@ -625,5 +625,6 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    @yield('script')
   </body>
 </html>

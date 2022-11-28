@@ -19,7 +19,8 @@ class CreateItemsTable extends Migration
             ->constrained() 
             ->onUpdate('cascade') 
             ->onDelete('cascade');
-            $table->string('title');
+            $table->string('name');
+            $table->string('path');
             $table->timestamps();
         });
     }
