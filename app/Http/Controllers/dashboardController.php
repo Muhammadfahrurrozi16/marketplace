@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +15,9 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        return view('back.Dashboard');
+        //
+        $items = item::groupBy('jasa_id')->get();
+        return view('front.vendor.Dashboard', ['items' => $items]);
     }
 
     /**

@@ -21,5 +21,6 @@ Route::get('/Home', [homecontroller::class, 'index1']);
 Route::get('/signup', [signupcontroller::class, 'index']);
 Route::get('/login', [logincontroller::class, 'index']);
 Route::post('/login', [logincontroller::class, 'authentikasi']);
+Route::get('/logout', [LoginController::class, 'logout']);
 Route::resource('dashboard',dashboardController::class);
 Route::resource('jasa',jasaController::class)->middleware('auth');
