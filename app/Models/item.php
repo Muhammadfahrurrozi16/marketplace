@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class item extends Model
 {
     use HasFactory;
+    public function Jasa(){ 
+        return $this->belongsTo(jasa::class);
+        }
 }

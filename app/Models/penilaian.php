@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class penilaian extends Model
 {
     use HasFactory;
+    public function Jasa(){ 
+        return $this->hasMany(jasa::class);
+        }
 }

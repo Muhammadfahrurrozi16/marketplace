@@ -16,10 +16,6 @@ class CreateJasasTable extends Migration
         Schema::create('jasas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('user_id') 
-            ->constrained() 
-            ->onUpdate('cascade') 
-            ->onDelete('cascade');
             $table->foreignId('seller_id')
             ->references('id') 
             ->on('users')  
@@ -40,6 +36,7 @@ class CreateJasasTable extends Migration
             $table->string('lokasi');
             $table->string('deskripsi');
             $table->string('diskon');
+            $table->enum('aktif',['y','n']);
             $table->timestamps();
         });
     }

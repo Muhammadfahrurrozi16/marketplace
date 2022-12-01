@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pembayaran extends Model
+class info extends Model
 {
     use HasFactory;
-    public function Pemesanan(){ 
-        return $this->hasMany(pemesanan::class);
-        }
 }

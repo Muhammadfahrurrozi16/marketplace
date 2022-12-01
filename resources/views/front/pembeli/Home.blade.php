@@ -80,36 +80,34 @@
 
 
     <!-- Start Categories of The Month -->
-    <section class="container py-5">
-        <div class="row text-center pt-3">
-            <div class="col-lg-6 m-auto">
-                <h1 class="h1">Categories of The Month</h1>
-                <p>
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                </p>
+    <div class="py-3 py-md-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="row text-center pt-3">
+                    <div class="col-lg-6 m-auto">
+                        <h1 class="h1">Kategori</h1>
+                        
+                    </div>
+                </div>
+                <td></td>
+                <td></td>
+                @foreach ($Kategori as $k => $v) 
+                <div class="col-6 col-md-4">
+                    <div class="category-card">
+                        <a href="{{ url('kategori/'.$v->id) }}">
+                            <div class="category-card-img">
+                                <img src="{{asset('uploud/kategori/'.$v->icon)}}" width="300px" height="400px" class="rounded" class="w-100">
+                            </div>
+                        </a>
+                            <div class="category-card-body">
+                                <h5 class="text-center mt-3 mb-3">{{ $v->name }}</h5>
+                            </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Watches</h5>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-            </div>
-        </div>
-    </section>
-    <!-- End Categories of The Month -->
-
+    </div>
 
     <!-- Start Featured Product -->
     <section class="bg-light">

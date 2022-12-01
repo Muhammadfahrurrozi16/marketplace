@@ -9,6 +9,20 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use HasFactory;
+    public function Role(){ 
+        return $this->belongsTo(user_role::class);
+        } 
+    public function Toko(){ 
+        return $this->belongsTo(toko::class);
+        }
+     public function Jasa(){ 
+        return $this->hasMany(jasa::class);
+        }
+    public function Pemesanan(){ 
+        return $this->hasMany(pemesanan::class);
+        }
+  
     use HasFactory, Notifiable;
 
     /**

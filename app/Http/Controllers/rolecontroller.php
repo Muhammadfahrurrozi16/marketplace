@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\user_role;
+use App\Models\User;
+use App\Models\toko;
+use Illuminate\Support\Facades\DB;
 
 class rolecontroller extends Controller
 {
@@ -13,7 +17,10 @@ class rolecontroller extends Controller
      */
     public function index()
     {
-        return view('back.admin.Dashboard');
+        $role = user_role::all();
+        $users = User::all();
+        $Toko = toko::all();
+        return view('back.admin.kelola_user.index', ['Role' => $role,'user' => $users, 'toko' => $Toko]);
     }
 
     /**
@@ -23,7 +30,10 @@ class rolecontroller extends Controller
      */
     public function create()
     {
-        //
+        $role = user_role::all();
+        $user = User::all();
+        $Toko = toko::all();
+        return view('back.admin.kelola_user.create', ['Role' => $role,'User' => $user,'toko' => $Toko]);
     }
 
     /**
@@ -34,7 +44,28 @@ class rolecontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'role_id' => 'required',
+            'toko_id' => 'required',
+            'aktif' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg,gif,svg|max:2048',
+               ]);
+        $imagefile= $request->image;
+        $image = $imagefile;
+        $imagename = time().'.'.$image->getClientOriginalExtension(); 
+        $imageuploud = $image->move('uploud\user',$imagename);
+        $user = new User();
+        $user->name = $request->name;
+        $user->toko_id = $request->toko_id;
+        $user->email = $request->email;
+        $user->role_id = $request->role_id;
+        $user->aktif = $request->aktif;
+        $user->image = $imagename;
+        $user->save();
+        return redirect('/admin/dashboard/user')->with(['message' => 'user added successfully!', 'status' => 'success']);
+
     }
 
     /**
