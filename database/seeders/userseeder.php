@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class userseeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,14 +14,19 @@ class userseeder extends Seeder
      */
     public function run()
     {
-        DB::table('Users')->insert(
-            array (
+        $user = [
             [
-            'role_id'=>'2'
-            ,'toko_id'=>'1'	
-            ,'name'=>'enka'
-            ,'email'=>'enka@gmail.com'
-            ])
-        );
+                'name' => 'admin',
+                'role_id' => 1,
+                'email' => 'admin@example.com',
+                'password' => bcrypt('123456'),
+            ],
+            // [
+            //     'name' => 'user',
+            //     'email' => 'user@example.com',
+            //     'password' => bcrypt('123456'),
+            // ],
+        ];
+        User::insert($user);
     }
 }

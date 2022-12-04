@@ -5,56 +5,15 @@
     <div class="container pb-5">
         <div class="row">
             <div class="col-lg-5 mt-5">
-                <div class="card mb-3">
-                    <img class="card-img img-fluid"  alt="Card image cap" id="product-detail">
-                </div>
-                <div class="row">
-                    <!--Start Controls-->
-                    <div class="col-1 align-self-center">
-                        <a href="#multi-item-example" role="button" data-bs-slide="prev">
-                            <i class="text-dark fas fa-chevron-left"></i>
-                            <span class="sr-only">Previous</span>
+                <div class="xzoom_container">
+                    <img src="" alt="" class="xzoom" id="xzoom-default">
+                    <div class="xzoom-thumbs">
+                        @foreach($item as $k => $p )
+                        <a href="{{asset('front/img/'.$p->title)}}">
+                            <img src="{{asset('front/img/'.$p->title)}}" alt="" class="xzoom-gallery" width="80" xpreview="assets/images/cake-1.jpg">
                         </a>
+                        @endforeach
                     </div>
-                    <!--End Controls-->
-                    <!--Start Carousel Wrapper-->
-                    <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
-                        <!--Start Slides-->
-                        <div class="carousel-inner product-links-wap" role="listbox">
-
-                            <!--First slide-->
-                            <div class="carousel-item active">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <a href="#">
-                                            <img class="card-img img-fluid" src="assets/img/product_single_01.jpg" alt="Product Image 1">
-                                        </a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="#">
-                                            <img class="card-img img-fluid" src="assets/img/product_single_02.jpg" alt="Product Image 2">
-                                        </a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="#">
-                                            <img class="card-img img-fluid" src="assets/img/product_single_03.jpg" alt="Product Image 3">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/.First slide-->
-                        </div>
-                        <!--End Slides-->
-                    </div>
-                    <!--End Carousel Wrapper-->
-                    <!--Start Controls-->
-                    <div class="col-1 align-self-center">
-                        <a href="#multi-item-example" role="button" data-bs-slide="next">
-                            <i class="text-dark fas fa-chevron-right"></i>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                    <!--End Controls-->
                 </div>
             </div>
             <!-- col end -->
@@ -85,14 +44,14 @@
                                 <h6>Kategori</h6>
                             </li>
                             <li class="list-inline-item">
-                                <a class="text-muted" href="{{ url('Jasa/vendor/'.$p->id) }}">{{$p->Toko->nama}}</a>
+                                <a class="text-muted" href="{{ url('jasa/toko/'.$p->id) }}">{{$p->Toko->nama}}</a>
                             </li>
                         </u>
                         @endforeach
                         <h6>Description</h6>
                         <p>{{$v->deskripsi}}</p>
 
-                        <form action="{{ url('jasa/pemesanan/'.$v->id) }}">
+                        <form action="{{ url('jasa/pemesanan/'.$v->id.'/'.$v->user_id)}}">
                             <div class="row pb-3">
                                 <div class="col d-grid">
                                     <button type="submit" class="btn btn-success btn-lg">Buy</button>
@@ -107,3 +66,21 @@
 </section>
 @endforeach
 @endsection
+@push('script')
+<script>
+$(function(){
+
+    $("#exzoom").exzoom({ 
+      "navWidth": 60,
+      "navHeight": 60,
+      "navItemNum": 5,
+      "navItemMargin": 7,
+      "navBorder": 1,
+      "autoPlay": true,
+      "autoPlayTimeout": 2000
+      
+    });
+  
+  });
+</script>    
+@endpush

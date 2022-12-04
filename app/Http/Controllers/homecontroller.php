@@ -22,17 +22,42 @@ class homecontroller extends Controller
     $Jasa = jasa::where('id', $id)->get();
     $users = user::where('id', $user_id)->get();
     $items = item::where('jasa_id', $id)->get(); 
-    return view('front.pembeli.Detailjasa',['jasa' => $Jasa,'Item' => $items, 'user' => $users]);
+    return view('front.pembeli.Detailjasa',['jasa' => $Jasa,'item' => $items, 'user' => $users]);
     } 
     public function jasakategori($id)
     {
     $Jasa =jasa::where('kategori_id',$id)->get();
     return view('front.pembeli.jasakategori',['jasa' => $Jasa]);
     }
+    public function showseller($id)
+    {
+    $Jasa =jasa::where('user_id',$id)->get();
+    $users = user::where('id', $id)->get();
+    return view('front.pembeli.profiltoko',['jasa' => $Jasa, 'user' => $users]);
+    }
+    public function tampiljasa($id)
+    {
+    $Jasa =jasa::where('user_id',$id)->get();
+    $users = user::where('id', $id)->get();
+    return view('front.pembeli.profiljasa',['jasa' => $Jasa, 'user' => $users]);
+    }
+    public function tampilFAQ($id)
+    {
+    $Jasa =jasa::where('user_id',$id)->get();
+    $users = user::where('id', $id)->get();
+    return view('front.pembeli.FAQjasa',['jasa' => $Jasa, 'user' => $users]);
+    }
     public function showjasa()
     {
      $Jasa = jasa::all();
-    return view('front.pembeli.Jasa',['jasa' => $Jasa]); 
+     $items = item::where('jasa_id')->first(); 
+    return view('front.pembeli.Jasa',['jasa' => $Jasa, 'item' => $items]); 
+    }
+    public function checkout($id,$user_id)
+    {
+    $Jasa = jasa::where('id', $id)->get();
+    $users = user::where('id', $user_id)->get();
+    return view('front.pembeli.pemesanan',['jasa' => $Jasa, 'user' => $users]); 
     }
     public function index1() 
     { 

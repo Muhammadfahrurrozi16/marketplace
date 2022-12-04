@@ -56,5 +56,7 @@
     </section>
     <!-- End Featured Product -->
 
+
+    <a href="jasa/create" class="btn btn-info btn-sm mt-3">Tambah Jasa</a>
 </div>
 @endsection('konten')

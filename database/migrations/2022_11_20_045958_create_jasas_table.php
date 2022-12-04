@@ -16,9 +16,7 @@ class CreateJasasTable extends Migration
         Schema::create('jasas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('seller_id')
-            ->references('id') 
-            ->on('users')  
+            $table->foreignId('user_id') 
             ->constrained() 
             ->onUpdate('cascade') 
             ->onDelete('cascade');
@@ -29,6 +27,7 @@ class CreateJasasTable extends Migration
             ->onUpdate('cascade') 
             ->onDelete('cascade');
             $table->foreignId('penilaian_id') 
+            ->nullable()
             ->constrained() 
             ->onUpdate('cascade') 
             ->onDelete('cascade');

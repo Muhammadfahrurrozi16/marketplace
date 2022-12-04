@@ -82,15 +82,22 @@
               <!-- /Logo -->
               <h4 class="mb-2">Welcome to Sneat! 👋</h4>
               <p class="mb-4">Please sign-in to your account and start the adventure</p>
+              @if (session()->has('loginError'))
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('loginError') }}
+              </div>
+              @endif
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+
+              <form id="formAuthentication" class="mb-3" action="/login" method="POST">
+                @csrf
                 <div class="mb-3">
                   <label for="email" class="form-label">Email or Username</label>
                   <input
                     type="text"
                     class="form-control"
                     id="email"
-                    name="email-username"
+                    name="email"
                     placeholder="Enter your email or username"
                     autofocus
                   />

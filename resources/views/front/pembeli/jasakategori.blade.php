@@ -74,7 +74,7 @@
                         <img class="card-img rounded-0 img-fluid" src="">
                     </div>
                     <div class="card-body">
-                    <a href="{{ route('jasa.show', $v['id']) }}">
+                    <a href="{{ url('jasa/detail/'.$v->id.'/'.$v->user_id) }}">
                         <p href="shop-single.html"class="text-left mb-0">{{ $v->name }}</p>
                         <ul>
                         </ul>

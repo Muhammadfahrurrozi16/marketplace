@@ -69,9 +69,11 @@
             @foreach($jasa as $k => $v )
                 <div class="col-md-4">
                     <div class="card mb-4 product-wap rounded-0">
+                        {{-- @foreach($item as $k => $p )
                         <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="">
+                            <img src="{{asset('front/img/'.$p->title)}}" class="card-img rounded-0 img-fluid" >
                         </div>
+                        @endforeach --}}
                         <div class="card-body">
                         <a href="{{ url('jasa/detail/'.$v->id.'/'.$v->user_id) }}">
                             <p href="shop-single.html"class="text-left mb-0">{{ $v->name }}</p>
@@ -83,7 +85,7 @@
                     </div>
                 </div>
                 @endforeach
-            <div div="row">
+                <div class="row">
                 <ul class="pagination pagination-lg justify-content-end">
                 </ul>
             </div>

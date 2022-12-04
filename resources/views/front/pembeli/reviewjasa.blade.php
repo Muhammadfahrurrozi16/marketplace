@@ -15,16 +15,16 @@
             <div class="card-header">
               <ul class="nav nav-pills card-header-pills">
                 <li class="nav-item">
-                  <a class="nav-link active" href="{{ url('jasa/toko/'.$v->id) }}">Portofolio</a>
+                  <a class="nav-link" href="{{ url('jasa/toko/'.$v->id) }}">Portofolio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url('jasa/toko/list/'.$v->id) }}">Jasa</a>
+                  <a class="nav-link "href="{{ url('jasa/toko/list/'.$v->id) }}">Jasa</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled"href="{{ url('jasa/toko/FAQ/'.$v->id) }}">FAQ</a>
+                  <a class="nav-link disabled" href="{{ url('jasa/toko/FAQ/'.$v->id) }}">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled"href="{{ url('jasa/toko/review/'.$v->id) }}">Reviews</a>
+                    <a class="nav-link active" href="{{ url('jasa/toko/review/'.$v->id) }}">Reviews</a>
                   </li>
               </ul>
             </div>

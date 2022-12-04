@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\user_role;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(penilaianseeder::class);
         $this->call(jasaseeder::class);
         // User::factory(10)->create();
+        $this->call(user_roleSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(kategorijasasSeeder::class);
     }
 }

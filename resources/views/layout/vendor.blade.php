@@ -524,7 +524,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
+                            <span class="fw-semibold d-block">@auth {{ auth()->user()->name }} @endauth</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>
@@ -623,7 +623,28 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
 
+
+        <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="{{asset('back/vendor/libs/jquery/jquery.js')}}"></script>
+    <script src="{{asset('back/vendor/libs/popper/popper.js')}}"></script>
+    <script src="{{asset('back/vendor/js/bootstrap.js')}}"></script>
+    <script src="{{asset('back/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+
+    <script src="{{asset('back/vendor/js/menu.js')}}"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="{{asset('back/vendor/libs/apex-charts/apexcharts.js')}}"></script>
+
+    <!-- Main JS -->
+    <script src="{{asset('back/assets/js/main.js')}}"></script>
+
+    <!-- Page JS -->
+    <script src="{{asset('back/assets/js/dashboards-analytics.js')}}"></script>
+
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    @yield('script')
   </body>
 </html>

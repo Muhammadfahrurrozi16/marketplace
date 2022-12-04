@@ -17,7 +17,7 @@ class CreateKategoriJasasTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('deskripsi');
-            $table->string('icon');
+            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }
